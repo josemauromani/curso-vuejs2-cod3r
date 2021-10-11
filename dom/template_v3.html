@@ -1,0 +1,21 @@
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Alterando DOM com VUE'
+        },
+        methods: {
+            saudacao: function () {
+                console.log(this);
+                return this.titulo;
+            }
+        }
+    });
+</script>

@@ -1,0 +1,41 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="desafio">
+    <!-- 1) Preencha a tag <p> abaixo com o seu Nome e Idade - usando Interpolação -->
+    <p>{{ nome }}</p>
+    <p>{{ idade }}</p>
+
+    <!-- 2) Exiba sua idade multiplicada por 3 -->
+    <p>{{ idade * 3 }}</p>
+
+    <!-- 3) Chame uma função para exibir um número randomico
+        entre 0 and 1 (Math.random()) -->
+    <p>{{ numeroAleatorio() }}</p>
+
+    <!-- 4) Procure uma imagem no google e exiba na tag img 
+        fazendo o binding no atributo "src" -->
+    <div>
+        <img height="400" v-bind:src="imagem">
+    </div>
+
+    <!-- 5) Inicialize o input com o seu nome (use o atributo "value") -->
+    <div>
+        <input type="text" v-bind:value=nome>
+    </div>
+</div>
+<script src="app.js"></script>
+<script>
+    new Vue({
+        el: '#desafio',
+        data: {
+            nome: 'Mauro',
+            idade: 39,
+            imagem: 'https://a-static.mlcdn.com.br/618x463/balao-metalizado-homem-de-ferro-33cm-anagram/extrafestas/14997p/e0faa4e2a44d7cad3f9f18937950802f.jpg',
+        },
+        methods: {
+            numeroAleatorio() {
+                return Math.random();
+            }
+        }
+    });
+</script>

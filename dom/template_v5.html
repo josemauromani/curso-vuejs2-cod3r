@@ -1,0 +1,23 @@
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <p v-once>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Alterando DOM com VUE',
+            link: 'https://www.google.com',
+        },
+        methods: {
+            saudacao: function () {
+                this.titulo = 'Fala Galera do Vue...';
+                return this.titulo;
+            }
+        }
+    });
+</script>
