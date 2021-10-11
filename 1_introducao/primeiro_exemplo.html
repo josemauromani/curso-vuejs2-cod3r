@@ -1,0 +1,20 @@
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <input type="text" v-on:input="alterarTitulo"/>
+    {{ titulo }}
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'VueJS',
+        },
+        methods: {
+            alterarTitulo(event) {
+                this.titulo = event.target.value;
+            }
+        }
+    });
+</script>
