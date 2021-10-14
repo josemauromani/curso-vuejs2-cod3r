@@ -1,0 +1,61 @@
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<style>
+    .caixas {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .c1 {
+        background-color: red;
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: blue;
+    }
+
+    .girar {
+        transform: rotate(35deg);
+    }
+</style>
+
+<div id="app">
+    <div class="caixas">
+        <div class="demo" :class="classCSS"></div>
+        <div class="demo" :class="[classCSS, {girar : aplicarGirar}]" @click="aplicarGirar = !aplicarGirar"></div>
+        <div :class="['demo', classCSS, 'girar']"></div>
+    </div>
+    <hr>
+    <input type="text" v-model="classCSS">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            aplicarC1: false,
+            aplicarC2: false,
+            aplicarC3: false,
+            classCSS: 'c1',
+            aplicarGirar: false,
+        },
+        computed: {
+            estilo1() {
+                return {
+                    c1: this.aplicarC1,
+                    c2: !this.aplicarC1,
+                }
+            }
+        }
+    });
+</script>

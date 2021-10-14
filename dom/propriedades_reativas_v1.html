@@ -1,0 +1,21 @@
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <input v-bind:value="titulo" v-on:input="titulo = $event.target.value">
+    <hr>
+
+    <p>{{ titulo2 }}</p>
+    <input v-model="titulo2">
+    <hr>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Alterando DOM com VUE',
+            titulo2: 'Alterando DOM com VUE'
+        }
+    });
+</script>

@@ -1,0 +1,31 @@
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <h3>{{ titulo }}</h3>
+    <p>Total de pontos {{ totalDePontos }}</p>
+    <button @click="diminuirPontos"> -</button>
+    <button @click="acrescentarPontos"> +</button>
+    <input type="text" :value="totalDePontos">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Pontos Jogo',
+            totalDePontos: 0,
+        },
+        methods: {
+            acrescentarPontos(e) {
+                console.log(e);
+                this.totalDePontos++;
+            },
+            diminuirPontos(e) {
+                console.log(e);
+                if (this.totalDePontos > 0)
+                    this.totalDePontos--;
+            },
+        }
+
+    });
+</script>

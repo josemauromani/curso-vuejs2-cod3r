@@ -1,0 +1,43 @@
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<div id="app">
+    <h3>{{ titulo }}</h3>
+    <p>Total de pontos {{ totalDePontos }}</p>
+    <button v-on:click="diminuirPontos($event, 2)"> -</button>
+    <button v-on:click="acrescentarPontos($event, 5)"> +</button>
+    <div v-on:mousemove="pegarPosicao" style="width: 100px; height: 100px; background-color: blue; margin-top: 30px"></div>
+    <p>Posicao do Mouse : x - {{ posicaoX }}, Y - {{ posicaoY }} </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Pontos Jogo',
+            totalDePontos: 0,
+            posicaoX: 0,
+            posicaoY: 0,
+        },
+        methods: {
+            acrescentarPontos(event, valor) {
+                console.log(event);
+                this.totalDePontos += valor;
+            },
+            diminuirPontos(event, valor) {
+                console.log(event);
+                if (this.totalDePontos > 0)
+                    this.totalDePontos -= valor;
+            },
+            pegarPosicao(event) {
+                /*
+                * Pegar as propriedades do objeto para calcular a posicao relativa do objeto
+                * E nao a posicao com relacao a tela
+                * */
+                propriedadesDoObjeto = event.target.getBoundingClientRect();
+                this.posicaoX = event.clientX - propriedadesDoObjeto.left;
+                this.posicaoY = event.clientY - propriedadesDoObjeto.top;
+            }
+        }
+
+    });
+</script>

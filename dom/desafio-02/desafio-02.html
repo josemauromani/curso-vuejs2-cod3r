@@ -1,0 +1,35 @@
+<script src="../../node_modules/vue/dist/vue.min.js"></script>
+
+<div id="desafio">
+    <div>
+        <button v-on:click="exibirAlerta">Alerta</button>
+    </div>
+    <br>
+    <div>
+        <input v-on:keydown="valorCampo1 = $event.target.value" type="text">
+        <p>{{ valorCampo1 }}</p>
+    </div>
+
+    <div>
+        <input v-on:keydown.enter="capturarValorCampo2" type="text">
+        <p>{{ valorCampo2 }}</p>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#desafio',
+        data: {
+            valorCampo1: "",
+            valorCampo2: "",
+        },
+        methods: {
+            exibirAlerta() {
+                alert('Alerta de Desafio');
+            },
+            capturarValorCampo2(event) {
+                this.valorCampo2 = event.target.value;
+            }
+        },
+    });
+</script>
